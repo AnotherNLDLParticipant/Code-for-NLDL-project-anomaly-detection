@@ -138,16 +138,6 @@ with torch.no_grad():
 
     print(NLDLplotfunction.RelevantCurves(label_list, scores))
     NLDLplotfunction.ScoreHistogram(label_list, scores)
-    print("E Sum",NLDLplotfunction.RelevantCurves(label_list, NLDLanomalyscores.anomaly_score(acc_features, sound_features, F1hat, F2hat, psi='Euclidean', aggregation='Sum')))
-    print("E prod",NLDLplotfunction.RelevantCurves(label_list, NLDLanomalyscores.anomaly_score(acc_features, sound_features, F1hat, F2hat, psi='Euclidean', aggregation='Product')))
-    print("E 1",NLDLplotfunction.RelevantCurves(label_list, NLDLanomalyscores.anomaly_score(acc_features, sound_features, F1hat, F2hat, psi='Euclidean', aggregation='First')))
-    print("E 2",NLDLplotfunction.RelevantCurves(label_list, NLDLanomalyscores.anomaly_score(acc_features, sound_features, F1hat, F2hat, psi='Euclidean', aggregation='Second')))
-    print("C Max",NLDLplotfunction.RelevantCurves(label_list, NLDLanomalyscores.anomaly_score(acc_features, sound_features, F1hat, F2hat, psi='Cosine', aggregation='Max')))
-    print("C Sum",NLDLplotfunction.RelevantCurves(label_list, NLDLanomalyscores.anomaly_score(acc_features, sound_features, F1hat, F2hat, psi='Cosine', aggregation='Sum')))
-    print("C Prod",NLDLplotfunction.RelevantCurves(label_list, NLDLanomalyscores.anomaly_score(acc_features, sound_features, F1hat, F2hat, psi='Cosine', aggregation='Product')))
-    print("C 1",NLDLplotfunction.RelevantCurves(label_list, NLDLanomalyscores.anomaly_score(acc_features, sound_features, F1hat, F2hat, psi='Cosine', aggregation='First')))
-    print("C 2", NLDLplotfunction.RelevantCurves(label_list, NLDLanomalyscores.anomaly_score(acc_features, sound_features, F1hat, F2hat, psi='Cosine', aggregation='Second')))
-
 
     print(NLDLplotfunction.RelevantCurves(label_list, AE1scores))
     print(NLDLplotfunction.RelevantCurves(label_list, AE2scores))
@@ -177,6 +167,7 @@ with torch.no_grad():
     plt.grid(True)
     plt.show()
 
+    # Plot all methods in the PR curve below
     precision, recall, thresholds = sk.precision_recall_curve(label_list, scores)
     precisionAE1, recallAE1, thresholdsAE1 = sk.precision_recall_curve(label_list, AE1scores)
     precisionAE2, recallAE2, thresholdsAE2 = sk.precision_recall_curve(label_list, AE2scores)
