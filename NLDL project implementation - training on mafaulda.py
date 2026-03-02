@@ -8,7 +8,6 @@ import torch.optim as optim
 import pandas as pd
 import numpy as np
 import NLDLarchitectures
-import numpy as np 
 import matplotlib.pyplot as plt
 import glob
 from scipy.io import wavfile
