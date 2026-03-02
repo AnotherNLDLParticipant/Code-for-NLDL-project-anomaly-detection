@@ -221,6 +221,7 @@ with torch.no_grad():
     plt.grid(True)
     plt.show()
 
+    # Plot all methods in the PR curve below
     precision, recall, thresholds = sk.precision_recall_curve(label_list, scores)
     precisionAE1, recallAE1, thresholdsAE1 = sk.precision_recall_curve(label_list, AE1scores)
     precisionAE2, recallAE2, thresholdsAE2 = sk.precision_recall_curve(label_list, AE2scores)
