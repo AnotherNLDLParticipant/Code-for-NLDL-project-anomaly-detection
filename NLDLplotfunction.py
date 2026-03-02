@@ -30,8 +30,6 @@ def RelevantCurves(labels, scores):
     plt.grid(True)
     plt.show()
 
-    # Make a table with AUROC values for the two different data sets 
-
     # Precision-Recall curves
     precision, recall, thresholds = sk.precision_recall_curve(labels, scores)
     auprc = sk.average_precision_score(labels, scores)
