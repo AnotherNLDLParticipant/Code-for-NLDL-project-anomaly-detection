@@ -9,7 +9,6 @@ import pandas as pd
 import numpy as np
 import NLDLarchitectures
 import NLDLanomalyscores
-import numpy as np 
 import math
 import NLDLplotfunction
 import matplotlib.pyplot as plt
