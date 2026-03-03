@@ -1,4 +1,3 @@
-import datautils
 from ts2vec import TS2Vec
 import os
 from pathlib import Path
