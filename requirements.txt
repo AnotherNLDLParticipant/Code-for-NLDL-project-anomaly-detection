@@ -1,0 +1,15 @@
+# General 
+numpy==1.26.4
+torch==2.1.2
+scipy==1.13.1
+scikit-learn==1.6.1
+pandas==2.3.3
+
+# Models
+archisound==0.0.6
+
+# Plotting 
+matplotlib==3.9.4
+umap-learn==0.5.11
+
+
