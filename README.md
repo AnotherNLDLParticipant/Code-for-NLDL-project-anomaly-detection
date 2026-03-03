@@ -1,1 +1,1 @@
-To run the code, we recommend that you download the datasets (which are linked in the project) and then put them in the same folder. The package versions used can be found in the requirements.txt file.
+To run the code, we recommend that you download the datasets (which are linked in the project) and the TS2Vec repository and then put them in the same folder. The package versions used can be found in the requirements.txt file.
