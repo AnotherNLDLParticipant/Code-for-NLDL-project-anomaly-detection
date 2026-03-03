@@ -178,11 +178,13 @@ with torch.no_grad():
     audio_series = nn.functional.pad(audio_series, (0, pad)) # Pad to make time series length a multiple of 4
     sound_features = autoencoder.encode(audio_series).reshape(num_segments, 64).detach() 
 
+    # Visualize embeddings of the encoders using UMAP 
     reducer = umap.UMAP(n_neighbors=10, min_dist=0, metric="euclidean", random_state=42)
+
+    # First, for the accelerometer features
     embedding = reducer.fit_transform(acc_features)
     print(embedding.shape)
-
-    # Visualize embeddings of the encoders using UMAP
+    
     color_map = {"Anomaly type 1":"red", "Anomaly type 2":"orange", "Normal":"blue"}
 
     for label, color in color_map.items():
@@ -191,6 +193,21 @@ with torch.no_grad():
 
     plt.legend(title="Label")
     plt.title("UMAP projection of accelerometer features")
+    plt.show()
+
+    # Secondly, for the sound features
+    reducer = umap.UMAP(n_neighbors=10, min_dist=0, metric="euclidean", random_state=42)
+    embedding = reducer.fit_transform(sound_features)
+    print(embedding.shape)
+    
+    color_map = {"Anomaly type 1":"red", "Anomaly type 2":"orange", "Normal":"blue"}
+
+    for label, color in color_map.items():
+        mask = np.array(specific_labels) == label
+        plt.scatter(embedding[mask, 0], embedding[mask, 1], c=color, label=label)
+
+    plt.legend(title="Label")
+    plt.title("UMAP projection of sound features")
     plt.show()
 
     # Cross-modal mapping 
